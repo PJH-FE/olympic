@@ -1,0 +1,19 @@
+div#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+.title span {
+  font-size: 18px;
+  font-weight: 400;
+}
