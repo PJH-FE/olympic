@@ -14,8 +14,9 @@ function Table({ list, setList }) {
 
     const sure = confirm("정말 삭제하시겠습니까?");
     if (sure) {
+      console.log(delResult);
       setList(delResult);
-      localStorage.setItem("medal", delResult);
+      localStorage.setItem("medal", JSON.stringify(delResult));
     }
   };
 
