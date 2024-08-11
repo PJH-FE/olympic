@@ -32,6 +32,13 @@ function App() {
   // Add 버튼
   const [medalList, setMedalList] = useState([]);
   const handleAddMedalList = (e) => {
+    e.preventDefault();
+    if (country.length === 0) {
+      return alert("국가명을 입력해주세요.");
+    } else if (!!document.getElementById(country)) {
+      return alert("이미 등록된 국가입니다.");
+    }
+
     setCountry("");
     setGoldMedal(0);
     setSilverMedal(0);
@@ -40,26 +47,58 @@ function App() {
       ...medalList,
       {
         country: country,
-        gold: goldMedal,
-        silver: silverMedal,
-        bronze: bronzeMedal,
+        gold: Number(goldMedal),
+        silver: Number(silverMedal),
+        bronze: Number(bronzeMedal),
+        total: Number(goldMedal) + Number(silverMedal) + Number(bronzeMedal),
       },
     ]);
+
+    document.getElementById("country").focus();
+
+    const saveData = JSON.stringify([
+      ...medalList,
+      {
+        country: country,
+        gold: Number(goldMedal),
+        silver: Number(silverMedal),
+        bronze: Number(bronzeMedal),
+        total: Number(goldMedal) + Number(silverMedal) + Number(bronzeMedal),
+      },
+    ]);
+
+    localStorage.setItem("medal", saveData);
   };
 
   const handleModifyMedalList = (e) => {
-    medalList.map((list) => {
-      if (list.country === country) {
-        list.gold = goldMedal;
-        list.silver = silverMedal;
-        list.bronze = bronzeMedal;
-      }
+    e.preventDefault();
+    if (document.getElementById("country").value.length === 0) {
+      return alert("국가명을 입력해주세요.");
+    }
+    const matchCountry = medalList.filter((list) => {
+      return list.country === country;
     });
+    if (matchCountry.length === 0) {
+      alert("일치하는 국가가 없습니다.");
+    } else {
+      matchCountry[0].gold = Number(goldMedal);
+      matchCountry[0].silver = Number(silverMedal);
+      matchCountry[0].bronze = Number(bronzeMedal);
+    }
+
     setCountry("");
     setGoldMedal(0);
     setSilverMedal(0);
     setBronzeMedal(0);
+
+    localStorage.setItem("medal", JSON.stringify(medalList));
   };
+
+  const loadData = localStorage.getItem("medal");
+  if (medalList.length === 0 && loadData !== null && loadData.length !== 0) {
+    setMedalList(JSON.parse(loadData));
+  }
+
   return (
     <>
       <div id="header">
@@ -68,25 +107,58 @@ function App() {
           <span>Olympic Medal Results</span>
         </h2>
 
-        <div id="inputArea">
-          <Input type={"text"} onChange={handleSetCountry} value={country} />
-          <Input type={"number"} onChange={handleSetGold} value={goldMedal} />
-          <Input
-            type={"number"}
-            onChange={handleSetSilver}
-            value={silverMedal}
-          />
-          <Input
-            type={"number"}
-            onChange={handleSetBronze}
-            value={bronzeMedal}
-          />
-          <Button onClick={handleAddMedalList} name={"국가 추가"} />
-          <Button onClick={handleModifyMedalList} name={"업데이트"} />
-        </div>
+        <form id="inputArea">
+          <div className="inputBox">
+            <label htmlFor="country">국가</label>
+            <Input
+              type={"text"}
+              onChange={handleSetCountry}
+              value={country}
+              id={"country"}
+              placeholder={"국가명을 입력하세요"}
+            />
+          </div>
+
+          <div className="inputBox">
+            <label htmlFor="country">금메달</label>
+            <Input
+              type={"number"}
+              onChange={handleSetGold}
+              value={goldMedal}
+              id={"gold"}
+            />
+          </div>
+
+          <div className="inputBox">
+            <label htmlFor="silver">은메달</label>
+            <Input
+              type={"number"}
+              onChange={handleSetSilver}
+              value={silverMedal}
+              id={"silver"}
+            />
+          </div>
+
+          <div className="inputBox">
+            <label htmlFor="bronze">동메달</label>
+            <Input
+              type={"number"}
+              onChange={handleSetBronze}
+              value={bronzeMedal}
+              id={"bronze"}
+            />
+          </div>
+
+          <div className="buttonArea">
+            <Button onClick={handleAddMedalList}>국가 추가</Button>
+            <Button onClick={handleModifyMedalList}>업데이트</Button>
+          </div>
+        </form>
       </div>
 
-      <Table medalList={[...medalList]} setMedalList={setMedalList} />
+      <div id="content">
+        <Table medalList={[...medalList]} setMedalList={setMedalList} />
+      </div>
     </>
   );
 }
