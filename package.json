@@ -9,9 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "homepage": "https://pjh-fe.github.io/olympic/"
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://pjh-fe.github.io/olympic/",
   "dependencies": {
     "gh-pages": "^6.1.1",
     "react": "^18.3.1",
