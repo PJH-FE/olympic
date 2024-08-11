@@ -1,6 +1,6 @@
 
 
-<p align="center"><img width="100%" src="https://github.com/user-attachments/assets/c6b5f294-83b1-4dda-95bb-fecae31397e8"/></p>
+<p align="center"><img width="30%" src="https://github.com/user-attachments/assets/c6b5f294-83b1-4dda-95bb-fecae31397e8"/></p>
 
 ## TEST URL
 https://pjh-fe.github.io/olympic/
