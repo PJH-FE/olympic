@@ -3,7 +3,7 @@
 <p align="center"><img src="https://github.com/user-attachments/assets/c6b5f294-83b1-4dda-95bb-fecae31397e8"/></p>
 
 ## TEST URL
-https://pjh-fe.github.io/olympic/
+<a href="https://pjh-fe.github.io/olympic/" target="_blank">OMR(Olympic Medal Results)</a>
 <br/>
 <br/>
 
