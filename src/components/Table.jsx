@@ -1,26 +1,26 @@
 import { useState } from "react";
 import Button from "./Button";
 
-function Table({ medalList, setMedalList }) {
+function Table({ list, setList }) {
   const [sortBy, setSortBy] = useState("gold");
   const handleSetSort = (e) => {
     setSortBy(e.target.value);
   };
 
   const deleteList = (medal) => {
-    const delResult = medalList.filter((delCountry) => {
+    const delResult = list.filter((delCountry) => {
       return delCountry.country !== medal.country;
     });
 
     const sure = confirm("정말 삭제하시겠습니까?");
     if (sure) {
-      setMedalList(delResult);
+      setList(delResult);
       localStorage.setItem("medal", delResult);
     }
   };
 
   // 리스트 출력
-  const writeMedalList = medalList
+  const writeMedalList = list
     .sort((a, b) => {
       return b[sortBy] - a[sortBy];
     })
@@ -42,7 +42,7 @@ function Table({ medalList, setMedalList }) {
       </tr>
     ));
 
-  if (medalList.length === 0) {
+  if (list.length === 0) {
     return <p>등록된 국가가 없습니다.</p>;
   }
 
