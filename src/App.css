@@ -121,6 +121,7 @@ div#content select {
   padding: 0 8px;
   margin: 24px 0;
   border: 2px solid #e0a5a4;
+  outline: none !important;
 }
 
 div#content table {
