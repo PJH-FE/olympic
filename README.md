@@ -1,6 +1,4 @@
-
-
-<p align="center"><img src="https://github.com/user-attachments/assets/c6b5f294-83b1-4dda-95bb-fecae31397e8"/></p>
+<p align="center"><img src="[https://github.com/user-attachments/assets/c6b5f294-83b1-4dda-95bb-fecae31397e8](https://github.com/user-attachments/assets/98c5410b-7e6d-4da5-8e02-99c294f02675)"/></p>
 
 ## TEST URL
 <a href="https://pjh-fe.github.io/olympic/" target="_blank">OMR(Olympic Medal Results)</a>
