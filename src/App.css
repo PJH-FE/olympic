@@ -144,4 +144,5 @@ div#content table tbody td button {
   height: 100%;
   padding: 12px 0;
   border: 0;
+  outline: none;
 }
