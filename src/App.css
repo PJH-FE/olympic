@@ -89,10 +89,10 @@ input {
   height: 40px;
   line-height: 24px;
   padding: 8px 12px;
-  background-color: #ffcec8;
+  background-color: #f8ece2;
   border: 0;
   border-radius: 0;
-  color: #fff;
+  color: #e0a5a4;
   box-sizing: border-box;
   outline: none !important;
   transition: 0.3s;
@@ -100,7 +100,8 @@ input {
 
 .buttonArea button:hover {
   border: 0;
-  background-color: #fdc3bc;
+  background-color: #e0a5a4;
+  color: #fff;
 }
 
 div#content {
