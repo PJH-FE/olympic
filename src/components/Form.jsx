@@ -35,6 +35,7 @@ const Form = (props) => {
   const [medalList, setMedalList] = useState([]);
   const handleAddMedalList = (e) => {
     e.preventDefault();
+
     if (country.length === 0) {
       return alert("국가명을 입력해주세요.");
     } else if (!!document.getElementById(country.trim())) {
@@ -75,12 +76,15 @@ const Form = (props) => {
 
   const handleModifyMedalList = (e) => {
     e.preventDefault();
+
     if (document.getElementById("country").value.length === 0) {
       return alert("국가명을 입력해주세요.");
     }
+
     const matchCountry = medalList.filter((list) => {
       return list.country === country.trim();
     });
+
     if (matchCountry.length === 0) {
       alert("일치하는 국가가 없습니다.");
     } else {
@@ -107,6 +111,7 @@ const Form = (props) => {
       updateList(JSON.parse(loadData));
     }
   };
+
   return (
     <form id="inputArea">
       <div className="inputBox">

@@ -3,12 +3,13 @@ div#root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 92%;
   max-width: 1280px;
   min-width: 800px;
   margin: 0 auto;
   padding: 24px;
   background-color: #fff;
+  border: 2px solid #e0a5a4;
   border-radius: 24px 0 0 0;
   box-sizing: border-box;
   box-shadow: 10px 12px 9px 5px rgba(0, 0, 0, 0.2);
@@ -24,9 +25,9 @@ div#root {
   font-weight: 700;
   margin: 0;
   padding: 24px 0;
-  border: 3px solid #fdc3bc;
-  background-color: #ffcec8;
-  color: #fff;
+  border: 2px solid #e0a5a4;
+  background-color: #f8ece2;
+  color: #e0a5a4;
 }
 .title span {
   font-size: 18px;
@@ -39,7 +40,7 @@ form#inputArea {
   align-items: stretch;
   justify-content: flex-end;
   margin-top: 24px;
-  border: 2px solid #fdc3bc;
+  border: 2px solid #e0a5a4;
 }
 
 .inputBox {
@@ -49,19 +50,21 @@ form#inputArea {
   align-items: center;
 }
 .inputBox + .inputBox {
-  border-left: 2px solid #fdc3bc;
+  border-left: 2px solid #e0a5a4;
 }
 label {
   width: 100%;
   text-align: center;
   padding: 4px 0;
   font-weight: 700;
-  border-bottom: 2px solid #fdc3bc;
+  color: #e0a5a4;
+  border-bottom: 2px solid #e0a5a4;
 }
 input {
   outline: none;
   height: auto;
   width: 100%;
+  height: 100%;
   line-height: 24px;
   padding: 8px 12px;
   border: 1px solid #fff;
@@ -79,7 +82,7 @@ input {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  border-left: 2px solid #fdc3bc;
+  border-left: 2px solid #e0a5a4;
 }
 .buttonArea button {
   width: 100%;
@@ -115,19 +118,20 @@ div#content select {
   line-height: 40px;
   padding: 0 8px;
   margin: 24px 0;
-  border-color: #fdc3bc;
+  border: 2px solid #e0a5a4;
 }
 
 div#content table {
   width: 100%;
   text-align: center;
-  border: 2px solid #fdc3bc;
+  border: 2px solid #e0a5a4;
   border-spacing: 0;
 }
 
 div#content table thead th {
   padding: 8px 0;
-  border-bottom: 1px solid #fdc3bc;
+  border-bottom: 2px solid #e0a5a4;
+  background: #f8ece2;
 }
 div#content table tbody {
   color: #000;
@@ -136,7 +140,7 @@ div#content table tbody td {
   padding: 0;
 }
 div#content table tbody tr + tr td {
-  border-top: 1px solid #fdc3bc;
+  border-top: 1px solid #e0a5a4;
 }
 div#content table tbody td button {
   background-color: transparent;
