@@ -94,6 +94,7 @@ input {
   border-radius: 0;
   color: #fff;
   box-sizing: border-box;
+  outline: none !important;
   transition: 0.3s;
 }
 
@@ -148,5 +149,5 @@ div#content table tbody td button {
   height: 100%;
   padding: 12px 0;
   border: 0;
-  outline: none;
+  outline: none !important;
 }
