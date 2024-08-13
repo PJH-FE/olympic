@@ -7,6 +7,15 @@ const Form = (props) => {
     props.updateList(list);
   };
 
+  // Form reset
+  const resetForm = () => {
+    setCountry("");
+    setGoldMedal(0);
+    setSilverMedal(0);
+    setBronzeMedal(0);
+    document.getElementById("country").focus();
+  };
+
   // 국가
   const [country, setCountry] = useState("");
   const handleSetCountry = (e) => {
@@ -42,11 +51,9 @@ const Form = (props) => {
       return alert("이미 등록된 국가입니다.");
     }
 
-    setCountry("");
-    setGoldMedal(0);
-    setSilverMedal(0);
-    setBronzeMedal(0);
-    setMedalList([
+    resetForm();
+
+    const newMedalList = [
       ...props.list,
       {
         country: country.trim(),
@@ -55,23 +62,11 @@ const Form = (props) => {
         bronze: Number(bronzeMedal),
         total: Number(goldMedal) + Number(silverMedal) + Number(bronzeMedal),
       },
-    ]);
+    ];
+    setMedalList(newMedalList);
 
-    document.getElementById("country").focus();
-
-    const saveData = JSON.stringify([
-      ...props.list,
-      {
-        country: country.trim(),
-        gold: Number(goldMedal),
-        silver: Number(silverMedal),
-        bronze: Number(bronzeMedal),
-        total: Number(goldMedal) + Number(silverMedal) + Number(bronzeMedal),
-      },
-    ]);
-
-    localStorage.setItem("medal", saveData);
-    updateList(JSON.parse(saveData));
+    localStorage.setItem("medal", JSON.stringify(newMedalList));
+    updateList(newMedalList);
   };
 
   const handleModifyMedalList = (e) => {
@@ -95,10 +90,7 @@ const Form = (props) => {
         Number(goldMedal) + Number(silverMedal) + Number(bronzeMedal);
     }
 
-    setCountry("");
-    setGoldMedal(0);
-    setSilverMedal(0);
-    setBronzeMedal(0);
+    resetForm();
 
     localStorage.setItem("medal", JSON.stringify(medalList));
     updateList(medalList);
@@ -107,7 +99,6 @@ const Form = (props) => {
   window.onload = () => {
     const loadData = localStorage.getItem("medal");
     if (medalList.length === 0 && loadData !== null && loadData.length !== 0) {
-      setMedalList(JSON.parse(loadData));
       updateList(JSON.parse(loadData));
     }
   };
